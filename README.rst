@@ -26,7 +26,7 @@ Pillar
 ======
 
 The pillar has the same structure in both cases, following the hierarchy of the
-`openconfig-system YANG model<http://ops.openconfig.net/branches/master/openconfig-system.html>`, e.g.:
+`openconfig-system YANG model<http://ops.openconfig.net/branches/master/openconfig-system.html>`_, e.g.:
 
 .. code-block:: yaml
 
@@ -46,7 +46,7 @@ The pillar has the same structure in both cases, following the hierarchy of the
 Usage
 =====
 
-After configuring the pillar data (and refresh it to the minions, i.e. `$ sudo salt '*' saltutil.refresh_pillar`),
+After configuring the pillar data (and refresh it to the minions, i.e. ``$ sudo salt '*' saltutil.refresh_pillar``),
 you can run this formula:
 
 .. code-block:: bash
