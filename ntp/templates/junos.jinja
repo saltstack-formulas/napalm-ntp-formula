@@ -1,0 +1,20 @@
+system {
+  {%- if system.ntp.get('config', {}).get('enabled', True) %}
+  replace:
+  ntp {
+    {%- for server_addr, server_opts in ntp_servers.server.items() %}
+    {%-   if server_opts.get('_salt_resolve', False) %}
+    {%-     set server_ips = salt.dnsutil.A(server_addr) %}
+    {%-     for server_ip in server_ips %}
+    {{ server_opts.config.association_type | lower }} {{ server_ip }};
+    {%-     endfor %}
+    {%-   else %}
+    {{ server_opts.config.association_type | lower }} {{ server_addr }};
+    {%-   endif %}
+    {%- endfor %}
+  }
+  {%- else %}
+  delete: ntp;
+  {%- endif %}
+}
+
