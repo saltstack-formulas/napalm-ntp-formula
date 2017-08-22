@@ -1,0 +1,8 @@
+name: napalm-ntp
+os: Junos, IOS-XR, EOS
+os_family: RedHat, Debian, Suse, Gentoo
+version: 201708
+release: 1
+minimum_version: 2017.7.0
+summary: Formula for NTP configuration management
+description: Formula for NTP configuration management of network devices
