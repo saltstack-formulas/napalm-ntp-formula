@@ -1,0 +1,2 @@
+{%- set ntp_servers = system.ntp.servers -%}
+{%- include 'ntp/templates/' ~ grains.os ~ '.jinja' -%}
