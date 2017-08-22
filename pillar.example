@@ -1,0 +1,12 @@
+openconfig-system:
+  system:
+    ntp:
+      servers:
+        server:
+          172.17.19.1:
+            config:
+              association_type: SERVER
+              prefer: true
+          172.17.19.2:
+            config:
+              association_type: PEER
