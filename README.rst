@@ -26,7 +26,7 @@ Pillar
 ======
 
 The pillar has the same structure in both cases, following the hierarchy of the
-`openconfig-system YANG model<http://ops.openconfig.net/branches/master/openconfig-system.html>`_, e.g.:
+`openconfig-system YANG model <http://ops.openconfig.net/branches/master/openconfig-system.html>`_, e.g.:
 
 .. code-block:: yaml
 
