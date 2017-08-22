@@ -14,7 +14,7 @@ ntp {{ server_opts.config.association_type | lower }} {{ server_ip }}
 ntp {{ server_opts.config.association_type | lower }} {{ server_addr }}
 {%-       endif %}
 {%-     else %}
-{%-       do salt.log.warning('Will not configure {}'.format(server_add')) %}
+{%-       do salt.log.warning('Will not configure {}'.format(server_add)) %}
 {%-     endif %}
 {%-   endfor %}
 {%- endif %}
