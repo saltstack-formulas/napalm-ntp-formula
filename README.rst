@@ -3,7 +3,7 @@ napalm-ntp-formula
 ==================
 
 Salt formula to manage the NTP configuration on network devices, managed via
-`NAPALM <https://napalm-automation.net>`,
+`NAPALM <https://napalm-automation.net>`_,
 either running under a `proxy minion <https://docs.saltstack.com/en/develop/ref/proxy/all/salt.proxy.napalm.html>`_,
 or installing the ``salt-minion`` directly on the network device (if the operating system permits).
 
