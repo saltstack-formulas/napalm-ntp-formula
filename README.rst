@@ -7,6 +7,8 @@ Salt formula to manage the NTP configuration on network devices, managed via
 either running under a `proxy minion <https://docs.saltstack.com/en/develop/ref/proxy/all/salt.proxy.napalm.html>`_,
 or installing the ``salt-minion`` directly on the network device (if the operating system permits).
 
+Check the `Salt Formulas instructions <https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_ to understand how to install and use formulas.
+
 Available states
 ================
 
