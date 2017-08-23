@@ -2,7 +2,10 @@
 napalm-ntp-formula
 ==================
 
-Salt formula to manage the NTP configuration on network devices, managed via NAPALM.
+Salt formula to manage the NTP configuration on network devices, managed via
+`NAPALM <https://napalm-automation.net>`,
+either running under a `proxy minion <https://docs.saltstack.com/en/develop/ref/proxy/all/salt.proxy.napalm.html>`_,
+or installing the ``salt-minion`` directly on the network device (if the operating system permits).
 
 Available states
 ================
@@ -17,8 +20,10 @@ Generate the configuration using Jinja templates and load the rendered configura
 templates are pre-written for several operating systems:
 
 - Junos
-- IOS-XR
-- EOS
+- Cisco IOS-XR
+- Arista EOS
+- Cisco IOS
+- Cisco NX-OS
 
 If you have a different operating system not covered yet, please submit a PR to add it.
 
@@ -82,4 +87,7 @@ Output Example:
     ------------
     Total states run:     1
     Total run time:   3.884 s
+
+``netyang``
+-----------
 
