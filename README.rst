@@ -40,15 +40,32 @@ The pillar has the same structure in both cases, following the hierarchy of the
     openconfig-system:
       system:
         ntp:
+          config:
+            ntp_source_address: 10.10.10.1
+          ntp_keys:
+            ntp_key:
+              1:
+                config:
+                  key_type: md5
+                  key_value: secretntpkey
           servers:
             server:
               172.17.19.1:
                 config:
                   association_type: SERVER
                   prefer: true
+                  iburst: true
               172.17.19.2:
                 config:
                   association_type: PEER
+                  version: 2
+
+.. note::
+    Some platforms may not support several options, e.g.:
+
+    - ``iburst`` is not available on Junos and NX-OS
+    - ``ntp-keys`` is ignored on IOS-XR
+    - ``version`` is not available on NX-OS
 
 Usage
 =====
@@ -90,6 +107,6 @@ Output Example:
     Total states run:     1
     Total run time:   3.884 s
 
+
 ``netyang``
 -----------
-
