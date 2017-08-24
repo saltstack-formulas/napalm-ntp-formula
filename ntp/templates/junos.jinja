@@ -12,12 +12,15 @@ system {
     {# name, type and value are all mandatory on Junos #}
     {%-   endfor %}
     {%- endif %}
-    {#  building the configuration from peers/servers #}
+    {#  building the configuration for peers/servers #}
     {%- for server_addr, server_opts in ntp_servers.server.items() %}
     {%-   if server_opts.get('_salt_resolve', False) %}
     {%-     set server_ips = salt.dnsutil.A(server_addr) %}
     {%-     for server_ip in server_ips %}
-    {{ server_opts.config.association_type | lower }} {{ server_ip }};
+    {{ server_opts.config.association_type | lower }} {{ server_ip }}
+    {%- if server_opts.config.get('prefer') %} prefer{%- endif -%}
+    {%- if server_opts.config.get('version') %} version {{ server_opts.config.version }}{%- endif -%}
+    ; {# the ; to end the declaration of the NTP server #}
     {%-     endfor %}
     {%-   else %}
     {#  other options for the NTP servers #}
