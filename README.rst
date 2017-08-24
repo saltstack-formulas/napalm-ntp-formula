@@ -108,5 +108,42 @@ Output Example:
     Total run time:   3.884 s
 
 
+``test_netconfig``
+------------------
+
+To avoid testing the state directly on the network device, you can use this
+state to save the contents in a temporary file, and display the rendered content
+on the command line:
+
+.. code-block:: bash
+
+    $ sudo salt '*' state.sls ntp.test_netconfig
+
+Output example:
+
+.. code-block:: bash
+
+    $ sudo salt vmx state.sls ntp.test_netconfig
+    vmx1:
+    ----------
+              ID: file.read
+        Function: module.run
+          Result: True
+         Comment: Module function file.read executed
+         Started: 16:18:49.456620
+        Duration: 0.884 ms
+         Changes:
+                  ----------
+                  ret:
+                      system {
+                        replace:
+                        ntp {
+                          source-address 10.10.10.1;
+                          authentication-key 1 type md5 value secretntpkey;
+                          server 172.17.19.1 prefer version 4;
+                          peer 172.17.19.2 version 2;
+                        }
+                      }
+
 ``netyang``
 -----------
