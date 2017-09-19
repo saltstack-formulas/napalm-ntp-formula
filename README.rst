@@ -42,6 +42,9 @@ The pillar has the same structure in both cases, following the hierarchy of the
         ntp:
           config:
             ntp_source_address: 10.10.10.1
+            ntp_source_interface: Loopback0
+            ntp_serve_all: true
+            ntp_update_calendar: true
           ntp_keys:
             ntp_key:
               1:
@@ -63,9 +66,12 @@ The pillar has the same structure in both cases, following the hierarchy of the
 .. note::
     Some platforms may not support several options, e.g.:
 
-    - ``iburst`` is not available on Junos and NX-OS
-    - ``ntp-keys`` is ignored on IOS-XR
-    - ``version`` is not available on NX-OS
+    - ``iburst`` is not available on Junos and NX-OS.
+    - ``ntp-keys`` is ignored on IOS-XR.
+    - ``version`` is not available on NX-OS.
+    - ``ntp_source_interface`` is not available on Junos.
+    - ``ntp_serve_all`` is only available on EOS: Permit NTP requests received on any interface.
+    - ``ntp_update_calendar`` is only available on IOS-XR: Periodically update calendar with NTP time.
 
 Usage
 =====
