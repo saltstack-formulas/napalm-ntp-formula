@@ -1,8 +1,9 @@
 no ntp
 {%- if system.ntp.get('config', {}).get('enabled', True) %}
-{#  configure the NTP source #}
-{%-   if ntp_config.get('ntp_source_address') %}
-ntp source {{ ntp_config.ntp_source_address }};
+{#  configure the NTP source intrface name #}
+{# IOS does not support source IP address configuration #}
+{%-   if ntp_config.get('ntp_source_interface') %}
+ntp source {{ ntp_config.ntp_source_interface }};
 {%-   endif %}
 {#  auth details #}
 {%-   if ntp_config.get('enable_ntp_auth') %}
