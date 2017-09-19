@@ -1,8 +1,12 @@
 no ntp
 {%- if system.ntp.get('config', {}).get('enabled', True) %}
-{#  configure the NTP source #}
-{%-   if ntp_config.get('ntp_source_address') %}
-ntp source {{ ntp_config.ntp_source_address }};
+{#  configure the NTP source interface #}
+{# EOS does not support source IP address configuration #}
+{%-   if ntp_config.get('ntp_source_interface') %}
+ntp source {{ ntp_config.ntp_source_interface }}
+{%-   endif %}
+{%-   if ntp_config.get('ntp_serve_all', False) %}
+ntp serve all
 {%-   endif %}
 {#  auth details #}
 {%-   if ntp_config.get('enable_ntp_auth') %}
@@ -33,7 +37,7 @@ ntp {{ server_opts.config.association_type | lower }} {{ server_addr }}
 {#  end configuring the opts of a server #}
 {%-       endif %}
 {%-     else %}
-{%-       do salt.log.warning('Will not configure {}'.format(server_add)) %}
+{%-       do salt.log.warning('Will not configure {}'.format(server_addr)) %}
 {%-     endif %}
 {%-   endfor %}
 {%- endif %}
